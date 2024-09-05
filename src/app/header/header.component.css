@@ -1,0 +1,26 @@
+.neon-text {
+    font-weight: bold;
+    animation: neon-color-change 5s infinite;
+}
+
+@keyframes neon-color-change {
+    0% {
+        color: #ff00de;
+        text-shadow: 0 0 10px #ff00de;
+    }
+
+    33% {
+        color: #00ffff;
+        text-shadow: 0 0 10px #00ffff;
+    }
+
+    66% {
+        color: #ff00ff;
+        text-shadow: 0 0 10px #ff00ff;
+    }
+
+    100% {
+        color: #ff00de;
+        text-shadow: 0 0 10px #ff00de;
+    }
+}

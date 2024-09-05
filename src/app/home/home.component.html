@@ -1,0 +1,75 @@
+<!-- Section Hero avec effet néon -->
+<section id="hero" class="bg-black text-white relative overflow-hidden flex items-center justify-center min-h-screen">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-6xl font-bold mb-4 neon-text" #animatedElement>NOCTINIUM</h1>
+        <p class="text-xl mb-8 rgb-text" #animatedElement>Découvrez les expériences nocturnes les plus exclusives de
+            Genève</p>
+        <a href="#events" (click)="scrollToEvents($event)"
+            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 neon-button">
+            Découvrez nos événements
+        </a>
+    </div>
+    <div class="absolute inset-0 bg-grid" #parallaxBg></div>
+    <button (click)="scrollToEvents()" aria-label="Défiler vers les événements"
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer w-16 h-16 flex items-center justify-center z-50">
+        <svg class="animate-bounce pointer-events-none" width="64" height="64" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+</section>
+
+<!-- Section Événements avec grille Bento -->
+<section id="events" class="py-16 bg-black">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-12 text-center text-white neon-text" #animatedElement>Événements à venir</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 max-w-7xl mx-auto">
+            <ng-container *ngFor="let event of events; let i = index">
+                <div [ngClass]="{
+            'col-span-4 sm:col-span-4 lg:col-span-4': i === 0,
+            'col-span-2 row-span-2': i % 11 === 6,
+            'col-span-2': i !== 0 && i % 11 !== 6
+            }" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col event-card"
+                    #animatedElement>
+                    <!-- ... (le reste du contenu de la carte d'événement reste inchangé) ... -->
+                    <div [ngClass]="{'flex flex-row': i === 0}" class="relative h-40 sm:h-48 md:h-56">
+                        <img [src]="event.imageSmall" [alt]="event.title"
+                            [ngClass]="{'w-1/2 h-full object-cover': i === 0, 'w-full h-full object-cover': i !== 0}"
+                            loading="lazy"
+                            (load)="onImageLoad($event)"
+                            (error)="onImageError($event)"
+                            [attr.srcset]="event.imageSmall + ' 400w, ' + event.imageLarge + ' 800w'"
+                            sizes="(max-width: 600px) 400px, 800px">
+                        <div
+                            [ngClass]="{'w-1/2 p-4 flex flex-col justify-center': i === 0, 'absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent': i !== 0}">
+                            <h3
+                                [ngClass]="{'text-lg sm:text-xl md:text-2xl font-bold text-white': i === 0, 'absolute bottom-2 left-2 right-2 text-sm sm:text-base md:text-lg font-bold text-white line-clamp-2': i !== 0}">
+                                {{ event.title }}
+                            </h3>
+                            <p *ngIf="i === 0" class="text-sm text-gray-300 mt-2">{{ event.date | date:'dd MMM yyyy' }}
+                            </p>
+                            <p *ngIf="i === 0" class="text-xs text-gray-400 mt-1">{{ event.venue }}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="i !== 0" class="p-3 sm:p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs sm:text-sm mb-1 text-gray-300">{{ event.date | date:'dd MMM yyyy' }}</p>
+                            <p class="text-xs text-gray-400 line-clamp-1">{{ event.venue }}</p>
+                        </div>
+                        <a href="#" [attr.aria-label]="'En savoir plus sur ' + event.title"
+                            class="mt-2 inline-block bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold py-1 sm:py-2 px-3 sm:px-4 rounded-full transition duration-300 text-center">
+                            En savoir plus
+                        </a>
+                    </div>
+                    <div *ngIf="i === 0" class="p-3 sm:p-4">
+                        <a href="#"
+                            class="inline-block bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full transition duration-300 text-center w-full">
+                            En savoir plus
+                        </a>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>
