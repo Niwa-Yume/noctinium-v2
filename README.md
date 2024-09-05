@@ -76,4 +76,4 @@ Lien du projet : [https://github.com/Niwa-Yume/noctinium-v2](https://github.com/
 
 ---
 
-⭐️ Inspiré par les nuits genevoises - Réalisé avec ❤️ par [Votre Nom]
+⭐️ Inspiré par les nuits genevoises - Réalisé avec ❤️ par [Julien Castro]
