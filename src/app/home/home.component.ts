@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewChild, Inject, HostListener } from '@angular/core';
 import { CommonModule, DatePipe, ViewportScroller } from '@angular/common';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -81,9 +81,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  breakpoint: string = 'lg';
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkBreakpoint();
+  }
+
   constructor(@Inject(ViewportScroller) private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
+    this.checkBreakpoint();
     // Initialisation si nécessaire
   }
 
@@ -157,5 +165,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.viewportScroller.scrollToAnchor('events-section');
       }
     }, 0);
+  }
+
+  checkBreakpoint() {
+    const width = window.innerWidth;
+    if (width < 640) {
+      this.breakpoint = 'xs';
+    } else if (width < 768) {
+      this.breakpoint = 'sm';
+    } else if (width < 1024) {
+      this.breakpoint = 'md';
+    } else {
+      this.breakpoint = 'lg';
+    }
   }
 }

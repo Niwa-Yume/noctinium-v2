@@ -1,11 +1,11 @@
 <!-- Section Hero avec effet néon -->
-<section id="hero" class="bg-black text-white relative overflow-hidden flex items-center justify-center h-[60vh]">
+<section id="hero" class="bg-black text-white relative overflow-hidden flex items-center justify-center h-[60vh] sm:h-[70vh] md:h-[80vh]">
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-6xl font-bold mb-4 neon-text" #animatedElement>NOCTINIUM</h1>
-        <p class="text-xl mb-8 rgb-text" #animatedElement>Découvrez les expériences nocturnes les plus exclusives de
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 neon-text" #animatedElement>NOCTINIUM</h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 rgb-text" #animatedElement>Découvrez les expériences nocturnes les plus exclusives de
             Genève</p>
         <a href="#events" (click)="scrollToEvents($event)"
-            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 neon-button">
+            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 neon-button text-sm sm:text-base">
             Découvrez nos événements
         </a>
     </div>
@@ -21,12 +21,12 @@
 </section>
 
 <!-- Section Événements avec grille Bento -->
-<section id="events" class="py-16 bg-black">
+<section id="events" class="py-8 sm:py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12 text-center text-white neon-text" #animatedElement>Événements à venir</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-white neon-text" #animatedElement>Événements à venir</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
             <ng-container *ngFor="let event of events; let i = index">
-                <div [ngClass]="{'row-span-2': i % 5 === 4}"
+                <div [ngClass]="{'row-span-2': i % 5 === 4 && !['sm', 'md'].includes(breakpoint)}"
                     class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col event-card"
                     #animatedElement>
                     <div class="relative h-40 sm:h-48 md:h-56">
@@ -44,7 +44,7 @@
                     <div class="p-3 sm:p-4 flex-grow flex flex-col justify-between">
                         <div>
                             <p class="text-xs sm:text-sm mb-1 text-gray-300">{{ event.date | date:'dd MMM yyyy' }}</p>
-                            <p class="text-xs text-gray-400 line-clamp-1">{{ event.venue }}</p>
+                            <p class="text-xs sm:text-sm text-gray-400 line-clamp-1">{{ event.venue }}</p>
                         </div>
                         <a href="#" [attr.aria-label]="'En savoir plus sur ' + event.title"
                             class="mt-2 inline-block bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold py-1 sm:py-2 px-3 sm:px-4 rounded-full transition duration-300 text-center">
