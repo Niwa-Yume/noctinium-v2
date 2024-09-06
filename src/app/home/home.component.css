@@ -24,8 +24,16 @@
 }
 
 h1.neon-text {
-    animation: neonFlicker 1.5s infinite alternate;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
+
+h1.neon-text.loading {
+    opacity: 0;
+}
+
 
 .event-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -54,7 +62,9 @@ h1.neon-text {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .event-card, .event-card img {
+
+    .event-card,
+    .event-card img {
         transition: none;
     }
 }

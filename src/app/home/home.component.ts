@@ -81,19 +81,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  constructor(@Inject(ViewportScroller) private viewportScroller: ViewportScroller) {}
+  constructor(@Inject(ViewportScroller) private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
     // Initialisation si nécessaire
   }
 
   ngAfterViewInit() {
+    this.setupInitialAnimation();
     this.setupScrollAnimation();
     this.setupParallaxEffect();
   }
 
+  setupInitialAnimation() {
+    gsap.from(this.animatedElements.first.nativeElement, {
+      opacity: 0,
+      y: 50,
+      duration: 0.6,
+      delay: 0.1
+    });
+  }
+
   setupScrollAnimation() {
     this.animatedElements.forEach((el, index) => {
+      if (index === 0) return; // Skip the first element as it's already animated
       gsap.from(el.nativeElement, {
         opacity: 0,
         y: 50,
@@ -135,7 +146,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (event) {
       event.preventDefault();
     }
-    
+
     // Utiliser un setTimeout pour s'assurer que le DOM est complètement chargé
     setTimeout(() => {
       const eventsElement = document.getElementById('events');
