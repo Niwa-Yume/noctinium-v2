@@ -10,10 +10,4 @@ import { RouterOutlet } from '@angular/router';
 })
 export class HeaderComponent {
   // Ajoutez ici toute logique spécifique au header si nécessaire
-  isScrolled = false;
-  //Sert à détecter le scroll de la page et à ajouter la classe scrolled au header si le scroll est supérieur à 50px
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.pageYOffset > 50;
-  }
 }
