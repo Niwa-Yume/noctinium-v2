@@ -5,11 +5,12 @@ header {
 
 .nav-link {
     padding: 0.5rem 0.75rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-link:hover {
     color: #ff00de;
+    text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
 }
 
 .neon-text {
