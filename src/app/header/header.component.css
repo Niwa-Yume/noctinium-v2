@@ -1,3 +1,17 @@
+/* Ajoutez ces styles au début du fichier */
+header {
+    padding: 0.5rem 0;
+}
+
+.nav-link {
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff00de;
+}
+
 .neon-text {
     font-weight: bold;
     animation: neon-color-change 5s infinite;
@@ -35,6 +49,7 @@
 
 @media (max-width: 768px) {
     nav {
+        padding-top: 4rem; /* Ajoutez de l'espace en haut pour le logo */
         display: block;
         position: fixed;
         top: 0;
@@ -60,15 +75,15 @@
     }
 
     nav ul li {
-        margin: 1rem 0;
+        margin: 0.75rem 0;
     }
 
     .hamburger-menu {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -77,8 +92,8 @@
     }
 
     .hamburger-menu span {
-        width: 2rem;
-        height: 0.25rem;
+        width: 1.5rem;
+        height: 0.2rem;
         background-color: white;
         border-radius: 10px;
         transition: all 0.3s linear;

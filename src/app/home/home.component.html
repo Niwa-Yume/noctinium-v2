@@ -1,23 +1,24 @@
 <!-- Section Hero avec effet néon -->
-<section id="hero" class="bg-black text-white relative overflow-hidden flex items-center justify-center h-[60vh] sm:h-[70vh] md:h-[80vh]">
+<section id="hero" class="bg-black bg-grid text-white relative overflow-hidden flex items-center justify-center min-h-[70vh]">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 neon-text" #animatedElement>NOCTINIUM</h1>
-        <p class="text-lg sm:text-xl md:text-2xl mb-8 rgb-text" #animatedElement>Découvrez les expériences nocturnes les plus exclusives de
-            Genève</p>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 neon-text animate-pulse">NOCTINIUM</h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 text-purple-300">Découvrez les expériences nocturnes les plus exclusives de Genève</p>
         <a href="#events" (click)="scrollToEvents($event)"
-            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 neon-button text-sm sm:text-base">
-            Découvrez nos événements
+           class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 neon-button text-base sm:text-lg">
+            Voir les soirées sur Genève
         </a>
     </div>
-    <div class="absolute inset-0 bg-grid" #parallaxBg></div>
-    <button (click)="scrollToEvents()" aria-label="Défiler vers les événements"
-        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer w-16 h-16 flex items-center justify-center z-50">
-        <svg class="animate-bounce pointer-events-none" width="64" height="64" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" stroke-width="3" stroke-linecap="round"
-                stroke-linejoin="round" />
+    
+    <!-- Flèche SVG centrée en bas -->
+    <div class="absolute bottom-5 left-0 right-0 flex justify-center items-center">
+        <svg (click)="scrollToEvents()" aria-label="Défiler vers les événements" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer animate-bounce">
+            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-    </button>
+    </div>
 </section>
 
 <!-- Section Événements avec grille Bento -->

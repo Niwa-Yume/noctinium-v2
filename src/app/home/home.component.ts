@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChildren('animatedElement') animatedElements!: QueryList<ElementRef>;//sert à faire les animations
   @ViewChild('parallaxBg') parallaxBg!: ElementRef;//sert à faire le parallax
   @ViewChild('events') eventsSection!: ElementRef;
+  @ViewChild('batsContainer') batsContainer!: ElementRef;
 
   events: CustomEvent[] = [
     {
@@ -99,6 +100,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.setupInitialAnimation();
     this.setupScrollAnimation();
     this.setupParallaxEffect();
+    this.createBats();
   }
 
   setupInitialAnimation() {
@@ -177,6 +179,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.breakpoint = 'md';
     } else {
       this.breakpoint = 'lg';
+    }
+  }
+
+  createBats() {
+    const container = this.batsContainer.nativeElement;
+    const batCount = 10;
+
+    for (let i = 0; i < batCount; i++) {
+      const bat = document.createElement('div');
+      bat.classList.add('bat');
+      bat.style.left = `${Math.random() * 100}vw`;
+      bat.style.top = `${Math.random() * 100}vh`;
+      bat.style.animationDelay = `${Math.random() * 15}s`;
+      container.appendChild(bat);
     }
   }
 }
