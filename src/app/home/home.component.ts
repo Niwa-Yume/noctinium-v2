@@ -79,6 +79,47 @@ export class HomeComponent implements OnInit, AfterViewInit {
       image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4",
       imageSmall: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&q=80",
       imageLarge: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=90"
+    },
+    // Nouveaux événements ajoutés
+    {
+      title: "Soirée Techno Underground",
+      date: new Date('2024-11-15'),
+      venue: "L'Usine",
+      image: "https://images.unsplash.com/photo-1571266028243-e4b4f4a4e38e",
+      imageSmall: "https://images.unsplash.com/photo-1571266028243-e4b4f4a4e38e?w=400&q=80",
+      imageLarge: "https://images.unsplash.com/photo-1571266028243-e4b4f4a4e38e?w=800&q=90"
+    },
+    {
+      title: "Nuit du Cinéma",
+      date: new Date('2024-12-05'),
+      venue: "Cinéma Bio",
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
+      imageSmall: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80",
+      imageLarge: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=90"
+    },
+    {
+      title: "Réveillon Nocturne",
+      date: new Date('2024-12-31'),
+      venue: "Bâtiment des Forces Motrices",
+      image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9",
+      imageSmall: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=400&q=80",
+      imageLarge: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=90"
+    },
+    {
+      title: "Festival d'Hiver",
+      date: new Date('2025-01-20'),
+      venue: "Parc La Grange",
+      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
+      imageSmall: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80",
+      imageLarge: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=90"
+    },
+    {
+      title: "Carnaval Nocturne",
+      date: new Date('2025-02-28'),
+      venue: "Vieille-Ville",
+      image: "https://images.unsplash.com/photo-1551843073-4a9a5b6fcd5f",
+      imageSmall: "https://images.unsplash.com/photo-1551843073-4a9a5b6fcd5f?w=400&q=80",
+      imageLarge: "https://images.unsplash.com/photo-1551843073-4a9a5b6fcd5f?w=800&q=90"
     }
   ];
 
@@ -194,5 +235,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
       bat.style.animationDelay = `${Math.random() * 15}s`;
       container.appendChild(bat);
     }
+  }
+
+  getBentoGridClass(index: number): string {
+    const classes = [
+      'col-span-3 row-span-2',
+      'col-span-3 row-span-1',
+      'col-span-2 row-span-1',
+      'col-span-2 row-span-2',
+      'col-span-2 row-span-1',
+      'col-span-4 row-span-1'
+    ];
+    return classes[index % classes.length] + ' event-card';
   }
 }
