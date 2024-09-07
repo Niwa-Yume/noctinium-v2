@@ -1,7 +1,7 @@
-<!-- Section Hero avec effet néon et fond quadrillé -->
+<!-- Section Hero avec effet néon amélioré -->
 <section id="hero" class="bg-black bg-grid text-white relative overflow-hidden flex items-center justify-center min-h-[70vh]">
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 neon-text">NOCTINIUM</h1>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 neon-text-enhanced">NOCTINIUM</h1>
         <p class="text-lg sm:text-xl md:text-2xl mb-8 text-purple-300">Découvrez les expériences nocturnes les plus exclusives de Genève</p>
         <a href="#events" (click)="scrollToEvents($event)"
            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 neon-button text-base sm:text-lg">
@@ -20,23 +20,24 @@
 <!-- Section Événements avec grille Bento améliorée -->
 <section id="events" class="py-16 bg-black">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12 text-center text-white neon-text" #animatedElement>Événements à venir</h2>
-        <div class="bento-grid max-w-7xl mx-auto">
-            <ng-container *ngFor="let event of events.slice(0, 6); let i = index">
+        <h2 class="text-4xl font-bold mb-12 text-center text-white neon-text-enhanced" #animatedElement>Événements à venir</h2>
+        <div class="bento-grid-enhanced max-w-6xl mx-auto">
+            <ng-container *ngFor="let event of events.slice(0, 5); let i = index">
                 <div [ngClass]="getBentoGridClass(i)"
-                    class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-purple-500/30 flex flex-col event-card"
+                    class="bg-gray-900 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-purple-500/50 flex flex-col event-card-enhanced group"
                     #animatedElement>
-                    <div class="relative h-full">
-                        <img [src]="event.imageSmall" [alt]="event.title" class="w-full h-full object-cover"
+                    <div class="relative h-full overflow-hidden">
+                        <img [src]="event.imageSmall" [alt]="event.title" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             loading="lazy" (load)="onImageLoad($event)" (error)="onImageError($event)"
                             [attr.srcset]="event.imageSmall + ' 400w, ' + event.imageLarge + ' 800w'"
                             sizes="(max-width: 600px) 400px, 800px">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent p-4 flex flex-col justify-end">
-                            <h3 class="text-lg font-bold text-white mb-2">{{ event.title }}</h3>
-                            <p class="text-sm text-gray-300 mb-1">{{ event.date | date:'dd MMM yyyy' }}</p>
-                            <p class="text-sm text-gray-400">{{ event.venue }}</p>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                            <h3 class="text-lg font-bold text-white mb-1 neon-text transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{{ event.title }}</h3>
+                            <p class="text-xs text-gray-300 mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{{ event.date | date:'dd MMM yyyy' }}</p>
+                            <p class="text-xs text-gray-400 mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">{{ event.venue }}</p>
                             <a href="#" [attr.aria-label]="'En savoir plus sur ' + event.title"
-                                class="mt-4 inline-block bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full transition duration-300 text-center self-start">
+                                class="inline-block bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-1 px-3 rounded-full transition duration-300 text-center self-start neon-button transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">
                                 En savoir plus
                             </a>
                         </div>

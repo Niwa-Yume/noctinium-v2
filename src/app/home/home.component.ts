@@ -239,13 +239,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getBentoGridClass(index: number): string {
     const classes = [
-      'col-span-3 row-span-2',
-      'col-span-3 row-span-1',
+      'col-span-3 row-span-2', // Premier événement légèrement plus grand
+      'col-span-3 row-span-2', // Deuxième événement de même taille
       'col-span-2 row-span-1',
-      'col-span-2 row-span-2',
       'col-span-2 row-span-1',
-      'col-span-4 row-span-1'
+      'col-span-2 row-span-1'
     ];
-    return classes[index % classes.length] + ' event-card';
+    return classes[index];
   }
 }

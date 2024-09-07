@@ -189,3 +189,178 @@
         animation: none;
     }
 }
+
+/* Ajoutez ces styles pour l'effet néon amélioré */
+.neon-text-enhanced {
+    color: #fff;
+    text-shadow: 
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #bc13fe,
+        0 0 82px #bc13fe,
+        0 0 92px #bc13fe,
+        0 0 102px #bc13fe,
+        0 0 151px #bc13fe;
+    animation: pulsate 1.5s infinite alternate;
+}
+
+@keyframes pulsate {
+    100% {
+        text-shadow: 
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #bc13fe,
+            0 0 80px #bc13fe,
+            0 0 90px #bc13fe,
+            0 0 100px #bc13fe,
+            0 0 150px #bc13fe;
+    }
+    0% {
+        text-shadow: 
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 6px #fff,
+            0 0 10px #bc13fe,
+            0 0 45px #bc13fe,
+            0 0 55px #bc13fe,
+            0 0 70px #bc13fe,
+            0 0 80px #bc13fe;
+    }
+}
+
+/* Styles améliorés pour la grille Bento */
+.bento-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card-enhanced {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-card-enhanced:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(188, 19, 254, 0.3);
+}
+
+/* Ajustez les classes de grille pour une disposition plus harmonieuse */
+.col-span-3 { grid-column: span 3; }
+.col-span-2 { grid-column: span 2; }
+.row-span-2 { grid-row: span 2; }
+.row-span-1 { grid-row: span 1; }
+
+@media (max-width: 1024px) {
+    .bento-grid-enhanced {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .event-card-enhanced {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .event-card-enhanced {
+        grid-column: span 2 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .bento-grid-enhanced {
+        grid-template-columns: 1fr;
+    }
+    .event-card-enhanced {
+        grid-column: span 1 !important;
+    }
+}
+
+/* Effet néon amélioré pour les titres des événements */
+.event-card-enhanced .neon-text {
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #bc13fe,
+        0 0 35px #bc13fe,
+        0 0 40px #bc13fe;
+}
+
+/* Animation de survol pour les cartes d'événements */
+.event-card-enhanced .group:hover img {
+    filter: brightness(0.7);
+}
+
+.event-card-enhanced .group:hover .neon-button {
+    box-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
+}
+
+/* Nouvelle animation pour le contenu au survol */
+.event-card-enhanced .group:hover .transform {
+    transform: translateY(0);
+}
+
+/* Styles pour le bouton de connexion */
+.login-button {
+    background-color: #bc13fe;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+}
+
+.login-button:hover {
+    background-color: #9900cc;
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.8);
+}
+
+.login-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Effet néon pour les liens de navigation */
+.nav-link {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #bc13fe;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #bc13fe;
+    text-shadow: 0 0 5px rgba(188, 19, 254, 0.5);
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
