@@ -1,20 +1,34 @@
 <header class="bg-black bg-grid w-full top-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <!-- Logo -->
         <img src="assets/logo-noctinium-Removebg.png" alt="NOCTINIUM" class="h-24 md:h-32 lg:h-40">
 
-        <button class="hamburger-menu md:hidden" (click)="toggleMenu()" [class.open]="isMenuOpen">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="flex items-center justify-end w-full">
+            <!-- Navigation principale -->
+            <nav [class.active]="isMenuOpen">
+                <ul class="flex space-x-4 md:space-x-6 text-white font-bold text-sm md:text-base">
+                    <!-- Liens de navigation -->
+                    <li><a href="#home" class="nav-link" (click)="closeMenu()">Accueil</a></li>
+                    <li><a href="#events" class="nav-link" (click)="closeMenu()">Événements</a></li>
+                    <li><a href="#around-me" class="nav-link" (click)="closeMenu()">Autour de moi</a></li>
+                    <li><a href="#about" class="nav-link" (click)="closeMenu()">A Propos</a></li>
+                    <li><a href="#contact" class="nav-link" (click)="closeMenu()">Contact</a></li>
+                </ul>
+            </nav>
 
-        <nav [class.active]="isMenuOpen">
-            <ul class="flex space-x-4 md:space-x-6 text-white font-bold text-sm md:text-base">
-                <li><a href="#home" class="nav-link" (click)="closeMenu()">Accueil</a></li>
-                <li><a href="#events" class="nav-link" (click)="closeMenu()">Événements</a></li>
-                <li><a href="#about" class="nav-link" (click)="closeMenu()">A Propos</a></li>
-                <li><a href="#contact" class="nav-link" (click)="closeMenu()">Contact</a></li>
-            </ul>
-        </nav>
+            <!-- Bouton hamburger pour mobile -->
+            <button class="hamburger-menu md:hidden mr-4" (click)="toggleMenu()" [class.open]="isMenuOpen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Bouton de connexion/inscription -->
+            <button class="login-icon" (click)="toggleLoginModal()" aria-label="Connexion / Inscription">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
     </div>
 </header>
