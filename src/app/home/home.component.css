@@ -5,10 +5,11 @@
 }
 
 .bg-grid {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
-    background-position: center;
+    background-position: center center;
 }
 
 .neon-text {
@@ -16,35 +17,22 @@
     text-shadow: 0 0 5px var(--text-color), 0 0 10px var(--text-color), 0 0 15px var(--text-color),
         0 0 20px var(--neon-color), 0 0 35px var(--neon-color), 0 0 40px var(--neon-color),
         0 0 50px var(--neon-color), 0 0 75px var(--neon-color);
+    animation: neonFlicker 1.5s infinite alternate;
 }
 
 @keyframes neonFlicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        text-shadow: 0 0 5px var(--text-color), 0 0 20px var(--neon-color);
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 5px var(--text-color), 0 0 10px var(--text-color), 0 0 15px var(--text-color),
+            0 0 20px var(--neon-color), 0 0 35px var(--neon-color), 0 0 40px var(--neon-color),
+            0 0 50px var(--neon-color), 0 0 75px var(--neon-color);
     }
-
-    20%,
-    24%,
-    55% {
+    20%, 24%, 55% {
         text-shadow: none;
     }
 }
 
-h1.neon-text {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
-h1.neon-text.loading {
-    opacity: 0;
+.neon-button:hover {
+    box-shadow: 0 0 5px var(--neon-color), 0 0 10px var(--neon-color), 0 0 15px var(--neon-color);
 }
 
 .event-card {
@@ -127,12 +115,9 @@ h1.neon-text.loading {
 }
 
 @keyframes twinkle {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 0.5;
     }
-
     50% {
         opacity: 1;
     }
@@ -157,7 +142,6 @@ h1.neon-text.loading {
     from {
         transform: translate(-100%, -100%) rotate(0deg);
     }
-
     to {
         transform: translate(100vw, 100vh) rotate(360deg);
     }
@@ -176,12 +160,10 @@ h1.neon-text.loading {
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .event-card:nth-child(1) {
         grid-column: span 2;
         grid-row: span 1;
     }
-
     .event-card:nth-child(n+2) {
         grid-column: span 1;
         grid-row: span 1;
@@ -192,7 +174,6 @@ h1.neon-text.loading {
     .bento-grid {
         grid-template-columns: 1fr;
     }
-
     .event-card:nth-child(n) {
         grid-column: span 1;
         grid-row: span 1;
@@ -200,7 +181,6 @@ h1.neon-text.loading {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
     .event-card,
     .event-card img,
     .event-card::after,
