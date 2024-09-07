@@ -86,26 +86,112 @@ header {
 
 /* Supprimez les styles inutilisés ou redondants */
 
-@media (max-width: 768px) {
-    /* Styles pour mobile */
+/* Styles pour le menu hamburger */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000; /* Augmenté pour être toujours au-dessus */
 }
 
-@media (min-width: 769px) {
-    /* Styles pour desktop */
+.hamburger-menu span {
+    width: 2rem;
+    height: 0.25rem;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Animation du menu hamburger */
+.hamburger-menu.open span:first-child {
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Styles pour la navigation */
+nav {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95); /* Fond plus opaque */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        z-index: 999; /* Juste en dessous du hamburger menu */
+    }
+
+    nav.active {
+        transform: translateX(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+        font-size: 1.5rem; /* Taille de police plus grande */
+    }
+
+    .nav-link {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Effet de lueur */
+    }
+
+    .login-button {
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000; /* Au même niveau que le hamburger menu */
+    }
 }
 
 /* Styles pour le bouton de connexion */
 .login-button {
-    background-color: #bc13fe;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #bc13fe;
+    border-radius: 50%;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+    z-index: 11; /* Augmenté pour être au-dessus du menu ouvert */
 }
 
 .login-button:hover {
@@ -116,6 +202,16 @@ header {
 .login-button svg {
     width: 20px;
     height: 20px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .login-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 11; /* Assurez-vous qu'il est au-dessus du menu */
+    }
 }
 
 /* Effet néon pour les liens de navigation */
