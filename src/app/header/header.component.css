@@ -9,8 +9,8 @@ header {
 }
 
 .nav-link:hover {
-    color: #ff00de;
-    text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
+    color: var(--neon-color);
+    text-shadow: 0 0 5px var(--neon-color), 0 0 10px var(--neon-color), 0 0 15px var(--neon-color);
 }
 
 .neon-text {
@@ -19,25 +19,9 @@ header {
 }
 
 @keyframes neon-color-change {
-    0% {
-        color: #ff00de;
-        text-shadow: 0 0 10px #ff00de;
-    }
-
-    33% {
-        color: #00ffff;
-        text-shadow: 0 0 10px #00ffff;
-    }
-
-    66% {
-        color: #ff00ff;
-        text-shadow: 0 0 10px #ff00ff;
-    }
-
-    100% {
-        color: #ff00de;
-        text-shadow: 0 0 10px #ff00de;
-    }
+    0%, 100% { color: #ff00de; text-shadow: 0 0 10px #ff00de; }
+    33% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+    66% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
 }
 
 .bg-grid {
@@ -53,7 +37,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ff00de;
+    background-color: var(--neon-color);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -64,26 +48,21 @@ header {
 
 .login-icon:hover {
     background-color: #d600b9;
-    box-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
+    box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
 }
 
 .login-icon svg {
     width: 24px;
     height: 24px;
-    color: white;
+    color: var(--text-color);
 }
 
 @media (max-width: 768px) {
     nav {
-        padding-top: 4rem; /* Ajoutez de l'espace en haut pour le logo */
-        display: block;
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 2rem;
+        inset: 0;
+        background-color: var(--bg-color);
+        padding: 4rem 2rem 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         z-index: 999;
@@ -120,7 +99,7 @@ header {
     .hamburger-menu span {
         width: 1.5rem;
         height: 0.2rem;
-        background-color: white;
+        background-color: var(--text-color);
         border-radius: 10px;
         transition: all 0.3s linear;
         position: relative;
@@ -137,16 +116,6 @@ header {
 
     .hamburger-menu.open span:nth-child(3) {
         transform: rotate(-45deg);
-    }
-
-    nav {
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    nav.active {
-        display: block;
-        transform: translateY(0);
     }
 
     .login-icon {
